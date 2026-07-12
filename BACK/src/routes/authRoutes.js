@@ -6,6 +6,8 @@ import { requireAuth } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
+const isProduction = process.env.NODE_ENV === 'production' || process.env.PORT !== undefined;
+
 const cookieOptions = {
   httpOnly: true,
   sameSite: isProduction ? "none" : "lax",
