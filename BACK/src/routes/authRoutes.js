@@ -8,9 +8,9 @@ const router = express.Router()
 
 const cookieOptions = {
     httpOnly: true,
-    sameSite: 'lax',
-    secure: false,
-    maxAge: 1000 * 60 * 60 * 8
+    sameSite: isProduction ? 'none' : 'lax', 
+    secure: isProduction, 
+    maxAge: 1000 * 60 * 60 * 8 // 8 horas
 }
 
 const createToken = (user) => {
