@@ -130,6 +130,6 @@ La colección Postman utiliza la cookie JWT almacenada automáticamente por Post
 
 ## Integrantes
 
-- Integrante 1: completar nombre y participación.
-- Integrante 2: completar nombre y participación.
-- Integrante 3: completar nombre y participación.
+- Integrante 1: Marcos Arteaga - Administración de BD
+- Integrante 2: Diego Neira - Desarrollador Full Stack!!!
+- Integrante 3: Carlos Carriel - Product Owner, Scrum Master, Ing. de figma 
