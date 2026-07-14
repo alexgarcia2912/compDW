@@ -1,7 +1,6 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import api from '../api/client.js'
-
-const AuthContext = createContext(null)
+import { AuthContext } from './authContext.js'
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
@@ -12,7 +11,7 @@ export const AuthProvider = ({ children }) => {
       try {
         const { data } = await api.get('/auth/me')
         setUser(data.user)
-      } catch (error) {
+      } catch {
         setUser(null)
       } finally {
         setLoading(false)
@@ -44,14 +43,4 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   )
-}
-
-export const useAuth = () => {
-  const context = useContext(AuthContext)
-
-  if (!context) {
-    throw new Error('useAuth debe usarse dentro de AuthProvider')
-  }
-
-  return context
 }

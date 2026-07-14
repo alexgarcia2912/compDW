@@ -12,7 +12,7 @@ function HomePage() {
       try {
         const { data } = await api.get('/contacts')
         setContacts(data)
-      } catch (requestError) {
+      } catch {
         setError('No se pudieron cargar los contactos')
       } finally {
         setLoading(false)

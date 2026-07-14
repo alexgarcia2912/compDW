@@ -15,7 +15,7 @@ function EditContactPage() {
       try {
         const { data } = await api.get(`/contacts/${id}`)
         setContact(data)
-      } catch (error) {
+      } catch {
         toast.error('No se pudo cargar el contacto')
         navigate('/', { replace: true })
       } finally {

@@ -1,0 +1,16 @@
+[
+  {
+    "nombre": "Ana Torres",
+    "telefono": "0991234567",
+    "correo": "ana@ejemplo.com",
+    "empresa": "Nova",
+    "notas": "Cliente frecuente"
+  },
+  {
+    "nombre": "Luis Pérez",
+    "telefono": "0987654321",
+    "correo": "luis@ejemplo.com",
+    "empresa": "Independiente",
+    "notas": ""
+  }
+]

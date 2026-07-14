@@ -1,0 +1,67 @@
+{
+  "info": {
+    "name": "Agenda Pro API",
+    "description": "Pruebas de autenticación JWT con cookie httpOnly y CRUD de contactos.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Sistema",
+      "item": [
+        { "name": "Health", "request": { "method": "GET", "url": "{{baseUrl}}/health" } }
+      ]
+    },
+    {
+      "name": "Autenticación",
+      "item": [
+        {
+          "name": "Registrar usuario",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Usuario Postman\",\n  \"correo\": \"postman@agendapro.local\",\n  \"password\": \"Postman123\"\n}" },
+            "url": "{{baseUrl}}/auth/register"
+          }
+        },
+        {
+          "name": "Iniciar sesión",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"correo\": \"postman@agendapro.local\",\n  \"password\": \"Postman123\"\n}" },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        },
+        { "name": "Validar sesión", "request": { "method": "GET", "url": "{{baseUrl}}/auth/me" } },
+        { "name": "Cerrar sesión", "request": { "method": "POST", "url": "{{baseUrl}}/auth/logout" } }
+      ]
+    },
+    {
+      "name": "Contactos",
+      "item": [
+        { "name": "Listar contactos", "request": { "method": "GET", "url": "{{baseUrl}}/contacts" } },
+        {
+          "name": "Crear contacto",
+          "event": [{ "listen": "test", "script": { "exec": ["pm.environment.set('contactId', pm.response.json().contact._id);"] } }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Contacto Postman\",\n  \"telefono\": \"0999999999\",\n  \"correo\": \"contacto@ejemplo.com\",\n  \"empresa\": \"Agenda Pro\",\n  \"notas\": \"Creado desde Postman\"\n}" },
+            "url": "{{baseUrl}}/contacts"
+          }
+        },
+        { "name": "Consultar contacto", "request": { "method": "GET", "url": "{{baseUrl}}/contacts/{{contactId}}" } },
+        {
+          "name": "Editar contacto",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Contacto Actualizado\",\n  \"telefono\": \"0988888888\",\n  \"correo\": \"actualizado@ejemplo.com\",\n  \"empresa\": \"Agenda Pro\",\n  \"notas\": \"Actualizado desde Postman\"\n}" },
+            "url": "{{baseUrl}}/contacts/{{contactId}}"
+          }
+        },
+        { "name": "Eliminar contacto", "request": { "method": "DELETE", "url": "{{baseUrl}}/contacts/{{contactId}}" } }
+      ]
+    }
+  ]
+}

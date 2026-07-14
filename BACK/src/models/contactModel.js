@@ -19,16 +19,21 @@ const contactSchema = new mongoose.Schema({
     },
     empresa: {
         type: String,
+        trim: true,
+        maxlength: 100,
         default: ''
     },
     notas: {
         type: String,
+        trim: true,
+        maxlength: 500,
         default: ''
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: true,
+        index: true
     }
 }, {
     timestamps: true

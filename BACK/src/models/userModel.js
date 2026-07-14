@@ -4,7 +4,9 @@ const userSchema = new mongoose.Schema({
     nombre: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        minlength: 2,
+        maxlength: 80
     },
     correo: {
         type: String,
@@ -16,7 +18,8 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 8
+        minlength: 8,
+        select: false
     }
 }, {
     timestamps: true

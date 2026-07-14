@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage'
 import AuthForm from './components/login.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import Navigation from './components/Navigation.jsx'
-import { useAuth } from './context/AuthContext.jsx'
+import { useAuth } from './context/useAuth.js'
 
 function App() {
   const { user } = useAuth()
